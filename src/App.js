@@ -5,7 +5,7 @@ import { TodosProvider } from "./context/TodosContext";
 const App = () => {
   return (
     <TodosProvider>
-      <div className="warpper">
+      <div className="container">
         <TodoContain />
       </div>
     </TodosProvider>

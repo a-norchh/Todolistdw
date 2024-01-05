@@ -6,6 +6,10 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  // -webkit-user-select: none;
+  // -moz-user-select: none;
+  // -ms-user-select: none;
+  // user-select: none;
 }
 
 html {
@@ -25,9 +29,14 @@ img {
   width: 100%;
 }
 
-.warpper {
-  width: 100%;
-  max-width: 72rem;
-  margin: 4.2rem auto 0;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 3rem;
+  // width: 100%;
+  // max-width: 72rem;
+  // margin: 4.2rem auto 0;
   // padding: 10rem;
 }

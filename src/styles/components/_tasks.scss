@@ -1,0 +1,13 @@
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 32.81px;
+    color: var(--black-color);
+  }
+}

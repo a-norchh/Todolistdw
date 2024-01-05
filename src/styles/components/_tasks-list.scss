@@ -1,0 +1,40 @@
+.tasks-list {
+  max-height: 31.5rem;
+  // padding-right: 1rem;
+  overflow: auto;
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white-color);
+    min-height: 4.6rem;
+    padding: 1.2rem 2rem;
+    border-radius: 999px;
+    margin-bottom: 1.7rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+
+    input[type="checkbox"],
+    label,
+    .btn-action {
+      cursor: pointer;
+    }
+
+    .todo-title {
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+
+      p {
+        font-size: 1.6rem;
+        &.done {
+          color: #a9a9a9;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+  .btn-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
