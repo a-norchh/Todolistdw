@@ -4,6 +4,7 @@ import {
   UPDATE_COMPLETE,
   ADD_TODO,
   DELETE_TODO,
+  EDIT_TODO,
 } from "../constants/actions";
 
 // GET DATA FIRST TIME
@@ -23,8 +24,6 @@ export const addTodo = async (dispatch, value) => {
     const response = await axios.post(`todos/`, value, {
       headers: { "Content-Type": "application/json" },
     });
-    // console.log(response);
-    // console.log(response.data);
     dispatch({ type: ADD_TODO, payload: response.data });
     setTimeout(() => {
       document.querySelector(".todos-list").scrollTop =
@@ -36,6 +35,17 @@ export const addTodo = async (dispatch, value) => {
 };
 
 // 2.EDIT TODO
+export const editTodo = async (dispatch, value) => {
+  try {
+    console.log(value);
+    const response = await axios.put(`todos/${value.id}`, value, {
+      headers: { "Content-Type": "application/json" },
+    });
+    dispatch({ type: EDIT_TODO, payload: { ...response.data } });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 // 3.DELETE TODO
 export const deleteTodo = async (id, dispatch) => {

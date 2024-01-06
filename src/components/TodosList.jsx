@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import CheckBox from "./UI/CheckBox";
 import { useTodosContext } from "../context/TodosContext";
-import { toggleComplete } from "../api/api";
+import { toggleComplete, editTodo } from "../api/api";
 import Card from "./UI/Card";
 import ActionButton from "./ActionButton";
+import InputForm from "../components/UI/InputForm";
 
 const TodosList = () => {
-  const { todos, dispatch, isEditting } = useTodosContext();
+  const { todos, dispatch } = useTodosContext();
   const [newText, setNewText] = useState("");
+  const [idEditing, setIdEditing] = useState("");
 
   // CHECK LENGTH
   // const [todoList, setTodoList] = useState([]);
@@ -22,6 +24,25 @@ const TodosList = () => {
     toggleComplete(id, dispatch, value);
   };
 
+  const EditSelector = (todoId, todoTitle) => {
+    setNewText(todoTitle);
+    setIdEditing(todoId);
+  };
+
+  const onChangeHandler = (e) => {
+    setNewText(e.target.value);
+  };
+
+  // EDIT TODO
+  const EditSubmitHandler = (e) => {
+    e.preventDefault();
+    if (newText.trim().length === 0) return;
+    setIdEditing("");
+    const selectTodo = todos.find((todo) => todo.id === idEditing);
+    const value = { ...selectTodo, title: newText };
+    editTodo(dispatch, value);
+  };
+
   return (
     <>
       {todos.length === 0 ? (
@@ -30,21 +51,36 @@ const TodosList = () => {
         <ul className={`todos-list ${todos.length > 6 ? "more-padding" : ""}`}>
           {todos.map((todo) => (
             <Card key={todo.id}>
-              {/* NORAML CASE */}
-              <li className="todo-item">
-                <label
-                  htmlFor={todo.id}
-                  className="todo-title"
-                  onClick={() => DoneHandler(todo.id, todo.completed)}
-                >
-                  <CheckBox isComplete={todo.completed} />
-                  <p className={`${todo.completed ? "done" : ""}`}>
-                    {todo.title}
-                  </p>
-                </label>
-                <ActionButton todoId={todo.id} />
-              </li>
-              {/* EDIT CASE */}
+              {idEditing !== todo.id ? (
+                <li className="todo-item">
+                  <label
+                    htmlFor={todo.id}
+                    className="todo-title"
+                    onClick={() => DoneHandler(todo.id, todo.completed)}
+                  >
+                    <CheckBox isComplete={todo.completed} />
+                    <p className={`${todo.completed ? "done" : ""}`}>
+                      {todo.title}
+                    </p>
+                  </label>
+                  <ActionButton
+                    todoId={todo.id}
+                    onEdit={() => EditSelector(todo.id, todo.title)}
+                  />
+                </li>
+              ) : (
+                <InputForm
+                  id={"edit_todo"}
+                  btnTitle="Save"
+                  onSubmit={(e) => EditSubmitHandler(e)}
+                  value={newText}
+                  onChange={onChangeHandler}
+                  autoFocus={true}
+                  placeholder={
+                    newText.trim().length === 0 ? "Please add some text..." : ""
+                  }
+                />
+              )}
             </Card>
           ))}
         </ul>

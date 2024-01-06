@@ -2,16 +2,4 @@
   .card {
     margin-bottom: 0;
   }
-
-  form {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    width: 100%;
-    button {
-      display: none;
-      @include mobile-screen {
-        display: block;
-      }
-    }
-  }
 }

@@ -22,7 +22,8 @@ const AddTodo = () => {
     <div className="add-todo">
       <Card>
         <InputForm
-          onSubmit={AddTodoHandler}
+          id={"text_todo"}
+          onSubmit={(e) => AddTodoHandler(e)}
           placeholder="Add your todo..."
           btnTitle="Add"
         />

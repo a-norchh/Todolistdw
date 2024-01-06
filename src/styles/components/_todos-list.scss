@@ -41,4 +41,14 @@
     justify-content: center;
     align-items: center;
   }
+
+  .input-form {
+    button {
+      display: block;
+    }
+  }
+
+  input::placeholder {
+    color: var(--rose-color);
+  }
 }

@@ -4,7 +4,7 @@ import { deleteTodo } from "../api/api";
 import { useTodosContext } from "../context/TodosContext";
 import { ACTION_TOGGLE } from "../constants/actions";
 
-const ActionButton = ({ todoId }) => {
+const ActionButton = ({ todoId, onEdit }) => {
   const { dispatch, actionToggle } = useTodosContext();
   // const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -14,6 +14,11 @@ const ActionButton = ({ todoId }) => {
     } else {
       dispatch({ type: ACTION_TOGGLE, payload: { id: "", toggle: false } });
     }
+  };
+
+  // DELETE TODO
+  const editHandler = () => {
+    onEdit();
   };
 
   // DELETE TODO
@@ -30,7 +35,9 @@ const ActionButton = ({ todoId }) => {
         }`}
       >
         <ul>
-          <li className="edit-btn">Edit</li>
+          <li className="edit-btn" onClick={editHandler}>
+            Edit
+          </li>
           <li className="delete-btn" onClick={deleteHandler}>
             Delete
           </li>

@@ -4,6 +4,7 @@ import {
   ADD_TODO,
   DELETE_TODO,
   ACTION_TOGGLE,
+  EDIT_TODO,
 } from "../constants/actions";
 
 const todosReducer = (state, action) => {
@@ -19,6 +20,13 @@ const todosReducer = (state, action) => {
       };
 
     // 2. EDIT TODO
+    case EDIT_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          action.payload.id === todo.id ? { ...todo, ...action.payload } : todo
+        ),
+      };
 
     // 3. DELETE TODO
     case DELETE_TODO:
