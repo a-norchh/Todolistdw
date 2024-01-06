@@ -9,7 +9,7 @@ const TodoContain = () => {
       <div className="todo-contain">
         <Progress />
         <Tasks />
-        <div>Add your todo</div>
+        <AddTodo />
       </div>
     </>
   );

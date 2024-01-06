@@ -1,0 +1,14 @@
+button {
+  border: none;
+  cursor: pointer;
+  padding: 1rem 1.7rem;
+  border-radius: 999px;
+  color: var(--white-color);
+  min-width: 6.4rem;
+  background-color: var(--violet-color);
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #3d3779;
+  }
+}

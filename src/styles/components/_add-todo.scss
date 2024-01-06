@@ -1,0 +1,14 @@
+.add-todo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  //   justify-content: space-between;
+  //   align-items: center;
+  width: 100%;
+
+  button {
+    display: none;
+    @include mobile-screen {
+      display: block;
+    }
+  }
+}

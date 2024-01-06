@@ -1,15 +1,20 @@
-import React from "react";
-import axios from "../api/axios";
-import CheckBox from "./CheckBox";
+import React, { useState, useEffect } from "react";
+import CheckBox from "./UI/CheckBox";
 import { useTodosContext } from "../context/TodosContext";
 import { toggleComplete } from "../api/api";
-import { UPDATE_COMPLETE } from "../api/constants";
+import Card from "./UI/Card";
 
-const TasksList = ({ todos }) => {
-  const { dispatch } = useTodosContext();
+const TasksList = () => {
+  const { todos, dispatch, isEditting } = useTodosContext();
+  const [newText, setNewText] = useState("");
+
+  // const [todoList, setTodoList] = useState([]);
+
+  // useEffect(() => {
+  //   setTodoList(todos);
+  // }, [todos]);
 
   const DoneHandler = async (id, completed) => {
-    // dispatch({ type: UPDATE_COMPLETE, payload: { id, completed } });
     const getTodo = todos.find((todo) => todo.id === id);
     const value = { ...getTodo, completed: !completed };
     toggleComplete(id, dispatch, value);
@@ -18,17 +23,21 @@ const TasksList = ({ todos }) => {
   return (
     <ul className="tasks-list">
       {todos.map((todo) => (
-        <li key={todo.id} className="todo-item">
-          <label
-            htmlFor={todo.id}
-            className="todo-title"
-            onClick={() => DoneHandler(todo.id, todo.completed)}
-          >
-            <CheckBox isComplete={todo.completed} />
-            <p className={`${todo.completed ? "done" : ""}`}>{todo.title}</p>
-          </label>
-          <div className="btn-action">btn</div>
-        </li>
+        <Card key={todo.id}>
+          {/* NORAML CASE */}
+          <li className="todo-item">
+            <label
+              htmlFor={todo.id}
+              className="todo-title"
+              onClick={() => DoneHandler(todo.id, todo.completed)}
+            >
+              <CheckBox isComplete={todo.completed} />
+              <p className={`${todo.completed ? "done" : ""}`}>{todo.title}</p>
+            </label>
+            <div className="btn-action">btn</div>
+          </li>
+          {/* EDIT CASE */}
+        </Card>
       ))}
     </ul>
   );

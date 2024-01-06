@@ -1,0 +1,9 @@
+input[type="text"] {
+  font-size: 1.6rem;
+  border: none;
+  //   background-color: rgba(red, 0.1);
+  outline: none;
+  &::placeholder {
+    color: #bcbcbc;
+  }
+}

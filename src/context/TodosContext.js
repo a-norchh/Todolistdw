@@ -4,6 +4,7 @@ import { startGetTodos } from "../api/api";
 
 const initialState = {
   isEditting: false,
+  filterBy: "All",
   todos: [],
 };
 
@@ -11,12 +12,14 @@ const TodosContext = createContext({});
 
 export const TodosProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todosReducer, initialState);
+
   useEffect(() => {
     // CALL API FOR GET DATA
     startGetTodos(dispatch);
   }, []);
+
   return (
-    <TodosContext.Provider value={{ ...state, dispatch }}>
+    <TodosContext.Provider value={{ ...state, dispatch, startGetTodos }}>
       {children}
     </TodosContext.Provider>
   );
