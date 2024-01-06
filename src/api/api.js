@@ -17,7 +17,7 @@ export const startGetTodos = async (dispatch) => {
   }
 };
 
-// 1.ADD TASK
+// 1.ADD TODO
 export const addTodo = async (dispatch, value) => {
   try {
     const response = await axios.post(`todos/`, value, {
@@ -27,17 +27,17 @@ export const addTodo = async (dispatch, value) => {
     // console.log(response.data);
     dispatch({ type: ADD_TODO, payload: response.data });
     setTimeout(() => {
-      document.querySelector(".tasks-list").scrollTop =
-        document.querySelector(".tasks-list").scrollHeight;
+      document.querySelector(".todos-list").scrollTop =
+        document.querySelector(".todos-list").scrollHeight;
     }, 100);
   } catch (error) {
     console.error(error);
   }
 };
 
-// 2.EDIT TASK
+// 2.EDIT TODO
 
-// 3.DELETE TASK
+// 3.DELETE TODO
 export const deleteTodo = async (id, dispatch) => {
   try {
     await axios.delete(`todos/${id}`);

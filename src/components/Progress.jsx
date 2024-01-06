@@ -3,8 +3,8 @@ import { useTodosContext } from "../context/TodosContext";
 
 const Progress = () => {
   const { todos } = useTodosContext();
-  const completeTask = todos.filter((todo) => todo.completed === true);
-  const progressActive = (completeTask.length / todos.length) * 100;
+  const completeTodo = todos.filter((todo) => todo.completed === true);
+  const progressActive = (completeTodo.length / todos.length) * 100;
 
   return (
     <div className="progress-contain">
@@ -15,7 +15,7 @@ const Progress = () => {
           style={todos.length > 0 ? { width: progressActive + "%" } : {}}
         ></div>
       </div>
-      <p>{completeTask.length} completed</p>
+      <p>{completeTodo.length} completed</p>
     </div>
   );
 };

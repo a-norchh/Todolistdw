@@ -5,7 +5,7 @@ import { toggleComplete } from "../api/api";
 import Card from "./UI/Card";
 import ActionButton from "./ActionButton";
 
-const TasksList = () => {
+const TodosList = () => {
   const { todos, dispatch, isEditting } = useTodosContext();
   const [newText, setNewText] = useState("");
 
@@ -27,7 +27,7 @@ const TasksList = () => {
       {todos.length === 0 ? (
         <p className="notice-text">- Don't have any tasks -</p>
       ) : (
-        <ul className={`tasks-list ${todos.length > 6 ? "more-padding" : ""}`}>
+        <ul className={`todos-list ${todos.length > 6 ? "more-padding" : ""}`}>
           {todos.map((todo) => (
             <Card key={todo.id}>
               {/* NORAML CASE */}
@@ -53,4 +53,4 @@ const TasksList = () => {
   );
 };
 
-export default TasksList;
+export default TodosList;

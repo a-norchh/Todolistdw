@@ -1,6 +1,6 @@
 import React from "react";
 import Progress from "./Progress";
-import Tasks from "./Tasks";
+import Todos from "./Todos";
 import AddTodo from "./AddTodo";
 
 const TodoContain = () => {
@@ -8,7 +8,7 @@ const TodoContain = () => {
     <>
       <div className="todo-contain">
         <Progress />
-        <Tasks />
+        <Todos />
         <AddTodo />
       </div>
     </>

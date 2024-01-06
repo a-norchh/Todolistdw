@@ -1,10 +1,10 @@
 import React from "react";
 
-const TasksHeader = () => {
+const TodosHeader = () => {
   return (
-    <div className="task-header">
+    <div className="todos-header">
       <h2>Tasks</h2>
-      <div className="tasks-filter">
+      <div className="todos-filter">
         <select>
           <option value="all">All</option>
           <option value="done">Done</option>
@@ -15,4 +15,4 @@ const TasksHeader = () => {
   );
 };
 
-export default TasksHeader;
+export default TodosHeader;

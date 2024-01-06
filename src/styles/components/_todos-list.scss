@@ -4,7 +4,7 @@
   padding: 0.5rem 1rem 3rem;
 }
 
-.tasks-list {
+.todos-list {
   max-height: 37.8rem;
 
   &.more-padding {
@@ -35,6 +35,7 @@
       }
     }
   }
+
   .btn-action {
     display: flex;
     justify-content: center;
