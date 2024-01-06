@@ -6,3 +6,4 @@ export const ACTION_TOGGLE = "ACTION_TOGGLE";
 export const EDIT_TODO = "EDIT_TODO";
 export const IS_LOADING = "IS_LOADING";
 export const LOADING_DONE = "LOADING_DONE";
+export const FILTER_BY = "FILTER_BY";

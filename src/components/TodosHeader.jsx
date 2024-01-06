@@ -1,16 +1,11 @@
 import React from "react";
+import Filter from "./Filter";
 
 const TodosHeader = () => {
   return (
     <div className="todos-header">
       <h2>Tasks</h2>
-      <div className="todos-filter">
-        <select>
-          <option value="all">All</option>
-          <option value="done">Done</option>
-          <option value="undone">Undone</option>
-        </select>
-      </div>
+      <Filter />
     </div>
   );
 };

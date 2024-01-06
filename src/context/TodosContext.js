@@ -4,7 +4,7 @@ import { startGetTodos } from "../api/api";
 
 const initialState = {
   isEditting: false,
-  filterBy: "All",
+  filterBy: "all",
   isLoading: false,
   actionToggle: { id: "", toggle: false },
   todos: [],

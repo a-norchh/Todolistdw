@@ -1,0 +1,41 @@
+.todos-filter {
+  position: relative;
+  .Dropdown-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 11rem;
+    height: 2.9rem;
+    border-radius: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--white-color);
+  }
+
+  .Dropdown-arrow-wrapper {
+    display: flex;
+  }
+
+  .Dropdown-menu {
+    position: absolute;
+    width: 100%;
+    padding: 1rem 0.6rem;
+    background-color: var(--white-color);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    top: 3.5rem;
+    z-index: 3;
+    .Dropdown-option {
+      font-size: 1.4rem;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--violet-color);
+        color: var(--white-color);
+        border-radius: 8px;
+      }
+    }
+  }
+}

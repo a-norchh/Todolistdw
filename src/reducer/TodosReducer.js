@@ -7,6 +7,7 @@ import {
   EDIT_TODO,
   IS_LOADING,
   LOADING_DONE,
+  FILTER_BY,
 } from "../constants/actions";
 
 const todosReducer = (state, action) => {
@@ -52,6 +53,10 @@ const todosReducer = (state, action) => {
             : todo
         ),
       };
+
+    // 5. SEE WHAT'S DONE (FILTER)
+    case FILTER_BY:
+      return { ...state, filterBy: action.payload };
 
     // ACTION TOGGLE
     case ACTION_TOGGLE:

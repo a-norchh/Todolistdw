@@ -7,16 +7,9 @@ import ActionButton from "./ActionButton";
 import InputForm from "../components/UI/InputForm";
 
 const TodosList = () => {
-  const { todos, dispatch } = useTodosContext();
+  const { todos, dispatch, filterBy } = useTodosContext();
   const [newText, setNewText] = useState("");
   const [idEditing, setIdEditing] = useState("");
-
-  // CHECK LENGTH
-  // const [todoList, setTodoList] = useState([]);
-
-  // useEffect(() => {
-  //   setTodoList(todos);
-  // }, [todos]);
 
   const DoneHandler = async (id, completed) => {
     const getTodo = todos.find((todo) => todo.id === id);
@@ -43,13 +36,33 @@ const TodosList = () => {
     editTodo(dispatch, value);
   };
 
+  const todosFilter = todos.filter((todo) =>
+    filterBy === "done"
+      ? todo.completed === true
+      : filterBy === "undone"
+      ? todo.completed === false
+      : todo
+  );
+
+  let noticeText = "";
+  if (todosFilter.length === 0 && filterBy === "done") {
+    noticeText = <p className="notice-text">- Don't have any done tasks -</p>;
+  } else if (todosFilter.length === 0 && filterBy === "undone") {
+    noticeText = <p className="notice-text">- Don't have any undone tasks -</p>;
+  }
+
   return (
     <>
       {todos.length === 0 ? (
         <p className="notice-text">- Don't have any tasks -</p>
       ) : (
-        <ul className={`todos-list ${todos.length > 6 ? "more-padding" : ""}`}>
-          {todos.map((todo) => (
+        <ul
+          className={`todos-list ${
+            todosFilter.length > 6 ? "more-padding" : ""
+          }`}
+        >
+          {noticeText}
+          {todosFilter.map((todo) => (
             <Card key={todo.id}>
               {idEditing !== todo.id ? (
                 <li className="todo-item">
