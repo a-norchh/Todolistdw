@@ -26,6 +26,10 @@ export const addTodo = async (dispatch, value) => {
     // console.log(response);
     // console.log(response.data);
     dispatch({ type: ADD_TODO, payload: response.data });
+    setTimeout(() => {
+      document.querySelector(".tasks-list").scrollTop =
+        document.querySelector(".tasks-list").scrollHeight;
+    }, 100);
   } catch (error) {
     console.error(error);
   }
