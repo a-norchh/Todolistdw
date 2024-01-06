@@ -5,7 +5,7 @@ import { startGetTodos } from "../api/api";
 const initialState = {
   isEditting: false,
   filterBy: "All",
-  actionOpened: false,
+  actionToggle: { id: "", toggle: false },
   todos: [],
 };
 

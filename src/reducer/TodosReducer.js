@@ -3,6 +3,7 @@ import {
   UPDATE_COMPLETE,
   ADD_TODO,
   DELETE_TODO,
+  ACTION_TOGGLE,
 } from "../constants/actions";
 
 const todosReducer = (state, action) => {
@@ -37,6 +38,9 @@ const todosReducer = (state, action) => {
         ),
       };
 
+    // ACTION TOGGLE
+    case ACTION_TOGGLE:
+      return { ...state, actionToggle: { ...action.payload } };
     default:
       return state;
   }

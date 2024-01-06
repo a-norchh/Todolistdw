@@ -27,7 +27,7 @@ const TasksList = () => {
       {todos.length === 0 ? (
         <p className="notice-text">- Don't have any tasks -</p>
       ) : (
-        <ul className={`tasks-list ${todos.length > 7 ? "more-padding" : ""}`}>
+        <ul className={`tasks-list ${todos.length > 6 ? "more-padding" : ""}`}>
           {todos.map((todo) => (
             <Card key={todo.id}>
               {/* NORAML CASE */}

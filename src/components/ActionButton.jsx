@@ -2,27 +2,36 @@ import React, { useState } from "react";
 import { SlOptions } from "react-icons/sl";
 import { deleteTodo } from "../api/api";
 import { useTodosContext } from "../context/TodosContext";
+import { ACTION_TOGGLE } from "../constants/actions";
 
 const ActionButton = ({ todoId }) => {
-  const { dispatch } = useTodosContext();
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const { dispatch, actionToggle } = useTodosContext();
+  // const [toggleMenu, setToggleMenu] = useState(false);
 
   const toggleHandler = () => {
-    setToggleMenu(!toggleMenu);
+    if (actionToggle.id !== todoId) {
+      dispatch({ type: ACTION_TOGGLE, payload: { id: todoId, toggle: true } });
+    } else {
+      dispatch({ type: ACTION_TOGGLE, payload: { id: "", toggle: false } });
+    }
   };
 
   // DELETE TODO
-  const deleteHandler = (todoId) => {
+  const deleteHandler = () => {
     deleteTodo(todoId, dispatch);
   };
 
   return (
     <div className="action-button" onClick={toggleHandler}>
       <SlOptions className="icon" />
-      <div className={`action-menu ${toggleMenu ? "opened" : ""}`}>
+      <div
+        className={`action-menu ${
+          actionToggle.toggle && actionToggle.id === todoId ? "opened" : ""
+        }`}
+      >
         <ul>
           <li className="edit-btn">Edit</li>
-          <li className="delete-btn" onClick={() => deleteHandler(todoId)}>
+          <li className="delete-btn" onClick={deleteHandler}>
             Delete
           </li>
         </ul>

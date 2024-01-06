@@ -5,10 +5,11 @@
 }
 
 .tasks-list {
-  max-height: 45rem;
-  overflow: auto;
+  max-height: 37.8rem;
+
   &.more-padding {
     padding-right: 1.1rem;
+    overflow: auto;
   }
   .todo-item {
     display: flex;
