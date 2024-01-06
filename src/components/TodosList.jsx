@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CheckBox from "./UI/CheckBox";
 import { useTodosContext } from "../context/TodosContext";
 import { toggleComplete, editTodo } from "../api/api";
@@ -58,7 +58,7 @@ const TodosList = () => {
       ) : (
         <ul
           className={`todos-list ${
-            todosFilter.length > 6 ? "more-padding" : ""
+            todosFilter.length > 4 ? "more-padding" : ""
           }`}
         >
           {noticeText}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SlOptions } from "react-icons/sl";
 import { deleteTodo } from "../api/api";
 import { useTodosContext } from "../context/TodosContext";

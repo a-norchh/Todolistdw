@@ -5,16 +5,26 @@
 }
 
 .todos-list {
-  max-height: 37.8rem;
+  margin: 1.6rem 0;
+  @include mobile-screen {
+    margin: 1.2rem 0;
+  }
+  .card {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
   &.more-padding {
     padding-right: 1.1rem;
     overflow: auto;
   }
+
   .todo-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     width: 100%;
+
     input[type="checkbox"],
     label,
     .btn-action {
@@ -28,6 +38,8 @@
 
       p {
         font-size: 1.6rem;
+        width: 100%;
+
         &.done {
           color: #a9a9a9;
           text-decoration: line-through;

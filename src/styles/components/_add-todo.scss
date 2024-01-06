@@ -1,5 +1,21 @@
 .add-todo {
+  // margin-top: 1.6rem;
   .card {
     margin-bottom: 0;
+  }
+  .input-form {
+    button {
+      @include tablet-screen {
+        display: block;
+      }
+
+      @media only screen and (max-height: $tablet-screen) and (max-width: $small-screen) {
+        display: block;
+      }
+
+      // @media only screen and (max-height: 1024px) and (orientation: landscape) {
+      //   display: block;
+      // }
+    }
   }
 }

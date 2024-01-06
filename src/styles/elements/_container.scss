@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 3rem;
+
+  @include tablet-screen {
+    padding: 0 5rem;
+  }
+
+  @include mobile-screen {
+    display: block;
+    height: auto;
+    padding: 0;
+  }
+
+  @media only screen and (max-height: 640px) {
+    // display: block;
+    height: auto;
+    padding: 0;
+  }
+}
