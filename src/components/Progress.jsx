@@ -12,7 +12,7 @@ const Progress = () => {
       <div className="progress-bar">
         <div
           className="progress-bar-active"
-          style={{ width: progressActive + "%" }}
+          style={todos.length > 0 ? { width: progressActive + "%" } : {}}
         ></div>
       </div>
       <p>{completeTask.length} completed</p>

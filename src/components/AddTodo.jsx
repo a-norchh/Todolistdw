@@ -8,6 +8,7 @@ import InputForm from "./UI/InputForm";
 const AddTodo = () => {
   const { dispatch } = useTodosContext();
 
+  // ADD TODO
   const AddTodoHandler = (e) => {
     e.preventDefault();
     if (e.target.elements.text_todo.value.trim().length === 0) return;

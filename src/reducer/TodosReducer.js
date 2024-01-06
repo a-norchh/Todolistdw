@@ -1,18 +1,32 @@
-import { GET_TODOS, UPDATE_COMPLETE, ADD_TODO } from "../constants/actions";
+import {
+  GET_TODOS,
+  UPDATE_COMPLETE,
+  ADD_TODO,
+  DELETE_TODO,
+} from "../constants/actions";
 
 const todosReducer = (state, action) => {
   switch (action.type) {
     case GET_TODOS:
       return { ...state, todos: [...state.todos, ...action.payload] };
 
-    // ADD TODO
+    // 1.ADD TODO
     case ADD_TODO:
       return {
         ...state,
         todos: [...state.todos, action.payload],
       };
 
-    // MARK AS DONE
+    // 2. EDIT TODO
+
+    // 3. DELETE TODO
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload),
+      };
+
+    // 4.MARK AS DONE
     case UPDATE_COMPLETE:
       return {
         ...state,
