@@ -1,14 +1,17 @@
 .add-todo {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  //   justify-content: space-between;
-  //   align-items: center;
-  width: 100%;
+  .card {
+    margin-bottom: 0;
+  }
 
-  button {
-    display: none;
-    @include mobile-screen {
-      display: block;
+  form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+    button {
+      display: none;
+      @include mobile-screen {
+        display: block;
+      }
     }
   }
 }

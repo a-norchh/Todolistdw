@@ -1,7 +1,9 @@
 .tasks-list {
   max-height: 31.5rem;
-  // padding-right: 1rem;
   overflow: auto;
+  &.more-padding {
+    padding-right: 1.1rem;
+  }
   .todo-item {
     display: flex;
     justify-content: space-between;

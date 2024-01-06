@@ -8,6 +8,7 @@ const TasksList = () => {
   const { todos, dispatch, isEditting } = useTodosContext();
   const [newText, setNewText] = useState("");
 
+  // CHECK LENGTH
   // const [todoList, setTodoList] = useState([]);
 
   // useEffect(() => {
@@ -21,7 +22,7 @@ const TasksList = () => {
   };
 
   return (
-    <ul className="tasks-list">
+    <ul className={`tasks-list ${todos.length > 5 ? "more-padding" : ""}`}>
       {todos.map((todo) => (
         <Card key={todo.id}>
           {/* NORAML CASE */}
