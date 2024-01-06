@@ -5,14 +5,17 @@ import {
   ADD_TODO,
   DELETE_TODO,
   EDIT_TODO,
+  IS_LOADING,
+  LOADING_DONE,
 } from "../constants/actions";
 
 // GET DATA FIRST TIME
 export const startGetTodos = async (dispatch) => {
   try {
-    console.log("START");
+    dispatch({ type: IS_LOADING });
     const response = await axios.get("todos");
     dispatch({ type: GET_TODOS, payload: response.data });
+    dispatch({ type: LOADING_DONE });
   } catch (error) {
     console.error(error);
   }
@@ -37,7 +40,6 @@ export const addTodo = async (dispatch, value) => {
 // 2.EDIT TODO
 export const editTodo = async (dispatch, value) => {
   try {
-    console.log(value);
     const response = await axios.put(`todos/${value.id}`, value, {
       headers: { "Content-Type": "application/json" },
     });

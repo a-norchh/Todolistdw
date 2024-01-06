@@ -5,12 +5,19 @@ import {
   DELETE_TODO,
   ACTION_TOGGLE,
   EDIT_TODO,
+  IS_LOADING,
+  LOADING_DONE,
 } from "../constants/actions";
 
 const todosReducer = (state, action) => {
   switch (action.type) {
     case GET_TODOS:
       return { ...state, todos: [...state.todos, ...action.payload] };
+    // LOADING
+    case IS_LOADING:
+      return { ...state, isLoading: true };
+    case LOADING_DONE:
+      return { ...state, isLoading: false };
 
     // 1.ADD TODO
     case ADD_TODO:

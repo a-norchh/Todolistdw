@@ -5,6 +5,7 @@ import { startGetTodos } from "../api/api";
 const initialState = {
   isEditting: false,
   filterBy: "All",
+  isLoading: false,
   actionToggle: { id: "", toggle: false },
   todos: [],
 };
@@ -15,7 +16,6 @@ export const TodosProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todosReducer, initialState);
 
   useEffect(() => {
-    // CALL API FOR GET DATA
     startGetTodos(dispatch);
   }, []);
 
