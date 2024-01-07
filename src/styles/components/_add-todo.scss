@@ -13,9 +13,9 @@
         display: block;
       }
 
-      // @media only screen and (max-height: 1024px) and (orientation: landscape) {
-      //   display: block;
-      // }
+      @media only screen and (max-height: 648px) and (orientation: landscape) {
+        display: block;
+      }
     }
   }
 }

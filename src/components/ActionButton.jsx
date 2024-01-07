@@ -6,7 +6,6 @@ import { ACTION_TOGGLE } from "../constants/actions";
 
 const ActionButton = ({ todoId, onEdit }) => {
   const { dispatch, actionToggle } = useTodosContext();
-  // const [toggleMenu, setToggleMenu] = useState(false);
 
   const toggleHandler = () => {
     if (actionToggle.id !== todoId) {
