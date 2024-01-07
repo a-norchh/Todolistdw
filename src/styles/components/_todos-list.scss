@@ -25,6 +25,9 @@
     grid-template-columns: 1fr auto;
     width: 100%;
 
+    &:hover {
+    }
+
     input[type="checkbox"],
     label,
     .btn-action {
@@ -38,7 +41,7 @@
 
       p {
         font-size: 1.6rem;
-        width: 100%;
+        width: 90%;
 
         &.done {
           color: #a9a9a9;
