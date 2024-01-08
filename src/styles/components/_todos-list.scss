@@ -5,14 +5,15 @@
 }
 
 .todos-list {
+  display: grid;
+  grid-gap: 1.6rem;
+  grid-auto-rows: min-content;
   margin: 1.6rem 0;
   @include mobile-screen {
     margin: 1.2rem 0;
   }
   .card {
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-bottom: 0;
   }
 
   &.more-padding {

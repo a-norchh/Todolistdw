@@ -61,40 +61,43 @@ const TodosList = () => {
             todosFilter.length > 4 ? "more-padding" : ""
           }`}
         >
-          {noticeText}
           {todosFilter.map((todo) => (
-            <Card key={todo.id}>
-              {idEditing !== todo.id ? (
-                <li className="todo-item">
-                  <label
-                    htmlFor={todo.id}
-                    className="todo-title"
-                    onClick={() => DoneHandler(todo.id, todo.completed)}
-                  >
-                    <CheckBox isComplete={todo.completed} />
-                    <p className={`${todo.completed ? "done" : ""}`}>
-                      {todo.title}
-                    </p>
-                  </label>
-                  <ActionButton
-                    todoId={todo.id}
-                    onEdit={() => EditSelector(todo.id, todo.title)}
+            <li key={todo.id}>
+              <Card>
+                {idEditing !== todo.id ? (
+                  <div className="todo-item">
+                    <label
+                      htmlFor={todo.id}
+                      className="todo-title"
+                      onClick={() => DoneHandler(todo.id, todo.completed)}
+                    >
+                      <CheckBox isComplete={todo.completed} />
+                      <p className={`${todo.completed ? "done" : ""}`}>
+                        {todo.title}
+                      </p>
+                    </label>
+                    <ActionButton
+                      todoId={todo.id}
+                      onEdit={() => EditSelector(todo.id, todo.title)}
+                    />
+                  </div>
+                ) : (
+                  <InputForm
+                    id={"edit_todo"}
+                    btnTitle="Save"
+                    onSubmit={(e) => EditSubmitHandler(e)}
+                    value={newText}
+                    onChange={onChangeHandler}
+                    autoFocus={true}
+                    placeholder={
+                      newText.trim().length === 0
+                        ? "Please add some text..."
+                        : ""
+                    }
                   />
-                </li>
-              ) : (
-                <InputForm
-                  id={"edit_todo"}
-                  btnTitle="Save"
-                  onSubmit={(e) => EditSubmitHandler(e)}
-                  value={newText}
-                  onChange={onChangeHandler}
-                  autoFocus={true}
-                  placeholder={
-                    newText.trim().length === 0 ? "Please add some text..." : ""
-                  }
-                />
-              )}
-            </Card>
+                )}
+              </Card>
+            </li>
           ))}
         </ul>
       )}
