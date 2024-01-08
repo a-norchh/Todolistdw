@@ -61,6 +61,7 @@ const TodosList = () => {
             todosFilter.length > 4 ? "more-padding" : ""
           }`}
         >
+          {noticeText}
           {todosFilter.map((todo) => (
             <li key={todo.id}>
               <Card>
